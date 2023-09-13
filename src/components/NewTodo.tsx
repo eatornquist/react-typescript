@@ -1,12 +1,17 @@
 import React, { useRef } from 'react'
 
-const NewTodo: React.FC = () => {
+type newTodoProps = {
+  onAddTodo: (todoText: string) => void
+}
+
+const NewTodo: React.FC<newTodoProps> = (props) => {
   const textInputRef = useRef<HTMLInputElement>(null)
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const enteredText = textInputRef.current!.value //This ! is a way of saying "I know what I'm doing. This object is not going to be null here"
-    console.log(enteredText)
+    // console.log(enteredText)
+    props.onAddTodo(enteredText)
   }
 
   return (

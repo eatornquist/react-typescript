@@ -8,13 +8,15 @@ function App() {
     { id: 't2', text: 'Find a job' },
   ]
 
+  function todoAddHandler(text: string) {
+    console.log(text)
+  }
+
   return (
-    <>
-      <div className="App">
-        <NewTodo />
-        <TodoList items={todos} />
-      </div>
-    </>
+    <div className="App">
+      <NewTodo onAddTodo={todoAddHandler} />
+      <TodoList items={todos} />
+    </div>
   )
 }
 
